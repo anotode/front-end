@@ -1,0 +1,26 @@
+angular.module('tagDirective', [])
+
+.directive('tagsInputAttr', 
+  function($compile){
+    return {
+      restrict: 'A',
+      require: '?highlight.highlightData.tags',
+      scope:{
+        ngModel: '='
+      },
+      link: function($scope, element, attrs, controller) {
+        var attrsText = '';
+        $.each($(element)[0].attributes, function(idx, attr) {
+          if (attr.nodeName === "tags-input-attr" || attr.nodeName === "ng-model") 
+            return;
+
+          attrsText += " " + attr.nodeName + "='" + attr.nodeValue + "'";
+        });
+
+        var html ='<tags-input ng-model="highlight.highlightData.tags" ' + attrsText + '></tags-input>';
+        e =$compile(html)($scope);
+        $(element).replaceWith(e);
+      }
+    };
+  }
+);

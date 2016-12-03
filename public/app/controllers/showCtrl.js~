@@ -1,0 +1,9 @@
+angular.module('showCtrl')
+
+.controller('ShowController', function($scope, $state, $stateParams) {
+    //..
+    var hid = $stateParams.foo;
+    //..
+    $scope.state = $state.current;
+    $scope.params = $stateParams; 
+})

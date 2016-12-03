@@ -1,0 +1,73 @@
+<style>
+#t{
+color:#000;
+
+}
+
+</style>
+
+<div> <snap-drawer> 
+<div class=snap-menu> 
+<div class="sidebar-header text-center"> 
+<img ng-src="..app/images/user.png" class="sidebar-img img-circle" /> </div> 
+<ul class=snap-ul> 
+<li ng-class="{active: $state.includes('overview')}"><a ui-sref=overview>HIGHLIGHTS</a></li> 
+<li ng-class="{active: $state.includes('categories')}"><a ui-sref=categories>CATEGORY</a></li> 
+<li ng-class="{active: $state.includes('create')}"><a ui-sref=create>CREATE NOTE</a></li> 
+<li ng-class="{active: $state.includes('note')}"><a ui-sref=note>NOTES</a></li> 
+<li><a ui-sref=login>LOGOUT</a></li>  
+</ul> </div> </snap-drawer> 
+<snap-dragger></snap-dragger> 
+<snap-content snap-opt-tap-to-close=false> 
+<a snap-toggle=left ng-click="menuOpen = !menuOpen"> 
+<span class=menutoggle> <i ng-hide=menuOpen class="fa fa-bars fa-2x"></i> 
+<i ng-show=menuOpen class="fa fa-times fa-2x"></i> </span> </a> <div class=fr> 
+<h2>Anotode <small>Highlighting the world</small></h2> 
+</div>   
+<div class=jumbotron> 
+<div class=container> 
+<h1>Create note</h1>
+<div class="login-page" ng-controller="HighlightController as highlight"> 
+<div class=form-content> <div class=pro-link>
+ </div> 
+<form role=form class=bottom-75 ng-submit="highlight.createHighlight()"> 
+<div class=table-form> 
+<div class=form-groups> 
+<div class=form-group> 
+<input type=text class="form-control input-lg" placeholder=TITLE ng-init="highlight.highlightData.title" ng-model="highlight.highlightData.title" > 
+</div> 
+<div class=form-group>
+<input type=text class="form-control input-lg" placeholder=TAG1 ng-model="highlight.highlightData.tags[$index]" > 
+</div>
+<div class=form-group>
+<input type=text class="form-control input-lg" placeholder=TAG2 ng-model="highlight.highlightData.tags[$index+1]" >
+</div>
+<div class=form-group>
+<input type=text class="form-control input-lg" placeholder=TAG3 ng-model="highlight.highlightData.tags[2]" >
+</div>
+<div class=form-group>
+<input type=text class="form-control input-lg" placeholder=TAG4 ng-model="highlight.highlightData.tags[3]" >
+</div>
+
+
+<div class=form-group>
+<input type=text class="form-control input-lg" ng-model="highlight.highlightData.url" ng-init="highlight.highlightData.url='customNote'">
+</div>
+<div class=form-group> 
+<input type=text class="form-control input-lg" placeholder=CATEGORY ng-model="highlight.highlightData.category" >
+</div>
+<div class=form-group> 
+<textarea class="form-control input-lg" placeholder=CONTENT ng-model="highlight.highlightData.text" required> </textarea>
+</div>
+</div>
+</div> 
+<button type=submit class="btn btn-primary btn-lg btn-white">Create</button> 
+ 
+</form> 
+</div> 
+</div> 
+<p> <a class="btn btn-primary btn-lg btn-white" ui-sref=overview>Back to Overview</a> </p> 
+</div> </div> 
+</snap-content> 
+</div>
+</div>

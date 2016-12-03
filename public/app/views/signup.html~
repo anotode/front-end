@@ -1,0 +1,42 @@
+<div class=nav-bar>
+<h1>Anotode</h1>
+
+</div>
+
+
+<div class="login-page" ng-controller="UserCreateController as user"> 
+<div class="img-container" > 
+<div class="text-center pull-right photo"> 
+<img ng-src="" class="user-avatar img-circle img-responsive" > 
+</div> </div> 
+ <div class=form-content> <div class=pro-link>
+ </div> 
+<form role=form name=userForm class=bottom-75 ng-submit="user.signupUser()" novalidate> 
+<div class=table-form> 
+<div class=form-groups> 
+<div class=form-group> 
+<input type=text class="form-control input-lg" name="name" placeholder=FULLNAME ng-model="user.userData.fullname" required> 
+<span style="color:red" ng-show="userForm.name.$dirty && userForm.name.$invalid">
+<span ng-show="userForm.name.$error.required">Name is required.</span>
+</div>
+
+<div class=form-group> 
+<input type=text class="form-control input-lg" name="email" placeholder=EMAIL ng-model="user.userData.email" required> 
+<span style="color:red" ng-show="userForm.email.$dirty && userForm.email.$invalid">
+<span ng-show="userForm.email.$error.email" class="help-block">Enter a valid email.</span> 
+<span ng-show="userForm.email.$error.required">Email is required.</span>
+
+
+</div> 
+<div class=form-group> <input type=text class="form-control input-lg" placeholder=USERNAME ng-model="user.userData.username" > </div> 
+<div class=form-group> <input type=password class="form-control input-lg" name="password" ng-minlength="5" placeholder=PASSWORD ng-model="user.userData.password" required>
+<span style="color:red" ng-show="userForm.password.$dirty && userForm.password.$invalid">
+<span ng-show="userForm.password.$error.required" class="help-block">Password is required.</span>
+<span ng-show="userForm.password.$error.minlength" class="help-block">Password is too short.</span>
+ </div> 
+</div> 
+<div class=button-container> <button type=submit ng-disabled="userForm.name.$dirty && userForm.name.$invalid ||  
+userForm.email.$dirty && userForm.email.$invalid || userForm.password.$dirty && userForm.password.$invalid " class="btn btn-default login"><img src=../../app/images/arrow.png></button> </div> </div> 
+</div> 
+</div> 
+ 

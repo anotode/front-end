@@ -1,0 +1,13 @@
+ 
+angular.module('categoryCtrl', ['categoryService'])
+
+
+	.controller('CategoryController', function($scope,Category, socketio) 
+
+
+
+
+ Category.all().then(function(categoryData) {
+    $scope.categories = categoryData;
+  });
+  
