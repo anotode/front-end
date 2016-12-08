@@ -5,6 +5,7 @@ var states = [
         { name: 'login', state: { url: '/login', parent: 'base', templateUrl: 'app/views/login.html',controller: 'MainController',
 			controllerAs: 'main', data: {text: "Login", visible: false } } },
 	{ name: 'register', state: { url: '/register', parent: 'base', templateUrl: 'app/views/signup.html', data: {text: "Register", visible: false } } },
+	{ name: 'home', state: { url: '/', parent: 'base', templateUrl: 'app/views/home.html', data: {text: "Home", visible: false } } },
         { name: 'dashboard', state: { url: '/dashboard', parent: 'base', templateUrl: 'app/views/dashboard.html',  data: {text: "Dashboard", visible: false } } },
         { name: 'overview', state: { url: '/highlights', parent: 'dashboard', templateUrl: 'app/views/dashboard/overview.html', data: {text: "Overview", visible: true } } },
         { name: 'categories', state: { url: '/categories', parent: 'dashboard', templateUrl: 'app/views/dashboard/categories.html', data: {text: "Categories", visible: true } } },
@@ -29,7 +30,7 @@ angular.module('yapp', [
             ])
         .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
             $urlRouterProvider.when('/dashboard', '/dashboard/highlights');
-            $urlRouterProvider.otherwise('/login');
+            $urlRouterProvider.otherwise('/');
             
             angular.forEach(states, function (state) {
                 $stateProvider.state(state.name, state.state);
