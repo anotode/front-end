@@ -1,8 +1,0 @@
-angular.module('yapp', ['appRoutes', 'mainCtrl', 'authService', 'userCtrl', 'userService', 'highlightService', 'highlightCtrl', 'reverseDirective'])
-
-.config(function($httpProvider) {
-
-	$httpProvider.interceptors.push('AuthInterceptor');
-
-
-})
